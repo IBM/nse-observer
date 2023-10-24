@@ -1,0 +1,20 @@
+--- NSfracStepF.py	2022-11-01 13:46:43
++++ Oasis/oasis/NSfracStep.py	2023-08-31 11:17:56
+@@ -156,7 +156,7 @@
+ 
+ # Get constant body forces
+ f = body_force(**vars())
+-# assert(isinstance(f, Coefficient))
++assert(isinstance(f, Coefficient))
+ b0 = dict((ui, assemble(v * f[i] * dx)) for i, ui in enumerate(u_components))
+ 
+ # Get scalar sources
+@@ -183,8 +183,6 @@
+     num_iter = max(iters_on_first_timestep, max_iter) if tstep <= 10 else max_iter
+ 
+     start_timestep_hook(**vars())
+-    # print('-- method norm f:', norm(f[0]), norm(f[1]))
+-    b0 = dict((ui, assemble(v * f[i] * dx)) for i, ui in enumerate(u_components))
+ 
+     while udiff[0] > max_error and inner_iter < num_iter:
+         inner_iter += 1
