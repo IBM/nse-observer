@@ -414,10 +414,10 @@ def spatial_average_proj_mat(dofs, params):
         for j in range(params['Nrec_y']):
             rec_ind = i*params['Nrec_y'] + j
             rec_nodes = (
-                dofs[:, 0] <= 0.99*((i+1)*rec_dx) + eps) & (
-                    dofs[:, 0] >= 0.99*(i*rec_dx) - eps) & (
-                        dofs[:, 1] <= 0.99*((j+1)*rec_dy) + eps) & (
-                            dofs[:, 1] >= 0.99*(j*rec_dy) - eps)
+                dofs[:, 0] <= 0.99999*((i+1)*rec_dx) + eps) & (
+                    dofs[:, 0] >= 0.99999*(i*rec_dx) - eps) & (
+                        dofs[:, 1] <= 0.99999*((j+1)*rec_dy) + eps) & (
+                            dofs[:, 1] >= 0.99999*(j*rec_dy) - eps)
             recon_mat[:, rec_ind] = rec_nodes
     print('++ 2')
     recon_mat = csr_matrix(recon_mat)
@@ -426,10 +426,10 @@ def spatial_average_proj_mat(dofs, params):
         for j in range(params['Nrec_y']):
             rec_ind = i*params['Nrec_y'] + j
             rec_nodes = (
-                dofs[:, 0] <= 0.99*((i+1)*rec_dx) + eps) & (
-                    dofs[:, 0] >= 0.99*(i*rec_dx) - eps) & (
-                        dofs[:, 1] <= 0.99*((j+1)*rec_dy) + eps) & (
-                            dofs[:, 1] >= 0.99*(j*rec_dy) - eps)
+                dofs[:, 0] <= 0.99999*((i+1)*rec_dx) + eps) & (
+                    dofs[:, 0] >= 0.99999*(i*rec_dx) - eps) & (
+                        dofs[:, 1] <= 0.99999*((j+1)*rec_dy) + eps) & (
+                            dofs[:, 1] >= 0.99999*(j*rec_dy) - eps)
             proj_mat[rec_ind, :] = rec_nodes/rec_nodes.sum()
     proj_mat = csr_matrix(proj_mat)
     print('++ 4')
