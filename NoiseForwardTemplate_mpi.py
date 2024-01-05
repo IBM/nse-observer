@@ -69,7 +69,7 @@ def problem_parameters(NS_parameters, NS_expressions, **NS_namespace):
         folder=FOLDER,
         init_cond_file=None,
         random_init_cond=True,
-        max_iter=1,
+        max_iter=50,
         max_error=1e-12,
         plot_interval=100000,
         save_step=10,
